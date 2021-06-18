@@ -13,7 +13,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Doggy doggy={doggy} getDoggy={() => getDoggy({ setDoggy })} />
+      <Doggy doggy={doggy} />
+      <button onClick={() => getDoggy({ setDoggy })}>Get A Doggy</button>
       <footer>
         <a href='https://thedogapi.com/' target='_blank' rel='noreferrer'>
           THE DOG API
