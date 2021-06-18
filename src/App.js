@@ -6,10 +6,7 @@ import "./App.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [doggy, setDoggy] = useState({
-    name: "",
-    picture: "",
-  });
+  const [doggy, setDoggy] = useState("");
 
   useEffect(() => getDoggy({ setDoggy, setLoading }), []);
 
