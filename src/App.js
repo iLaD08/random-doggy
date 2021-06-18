@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import getDoggy from "./actions/getDoggy";
+import Doggy from "./components/doggy";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [doggy, setDoggy] = useState({
+    name: "",
+    picture: "",
+  });
+
+  useEffect(() => getDoggy({ setDoggy }), []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className='App'>
+      <Doggy doggy={doggy} getDoggy={() => getDoggy({ setDoggy })} />
+      <footer>
+        <a href='https://thedogapi.com/' target='_blank' rel='noreferrer'>
+          THE DOG API
         </a>
-      </header>
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
